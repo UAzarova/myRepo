@@ -8,7 +8,7 @@
 
 package lesson6;
 
-public class HomeWork6 {
+class HomeWork6 {
 
     public static void main(String[] args) {
         
@@ -17,7 +17,10 @@ public class HomeWork6 {
                 new Dog("bobik")
         };
         
+
+        
         for (IAnimal animal : animals) {
+            System.out.println(animal);
             System.out.println("Run distance is: " + -5 + ",   " + animal.run(-5));
             System.out.println("Run distance is: " + 5 + ",    " + animal.run(5));
             System.out.println("Run distance is: " + 600 + ",  " + animal.run(600));
