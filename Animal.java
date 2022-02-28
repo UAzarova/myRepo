@@ -43,6 +43,6 @@ abstract class Animal implements IAnimal {
      
     @Override
     public String toString() {
-        return "Ran " + runLength + "m." + "\n" + "Swam " + swimLength + "m.";
+        return name + " ran " + runLength + " m. " + "swam " + swimLength + "m.";
     }
 }
