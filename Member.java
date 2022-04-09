@@ -53,8 +53,7 @@ public class Member implements IRun, ISwim {
 
     @Override
     public String toString() {
-        return String.format("Member name: %s\n" +
-                "runDistance: %s\n swimDistance: %s\n",name,runDistance,swimDistance);
+        return String.format("Member name: %s\nrunDistance: %s\nswimDistance: %s\n",name,runDistance,swimDistance);
     }
 
 }

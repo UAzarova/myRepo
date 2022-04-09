@@ -17,10 +17,10 @@ package lesson1;
 public class Main {
     public static void main(String[] args) {
 
-        Stadium stadium1 = new Stadium (2);
+        Stadium stadium1 = new Stadium (1);
         Stadium stadium2 = new Stadium (100);
         Pool pool1 = new Pool (2);
-        Pool pool2 = new Pool (100);
+        Pool pool2 = new Pool (300);
         ObstacleCourse obstacleCourse1 = new ObstacleCourse (stadium1, pool1);
         ObstacleCourse obstacleCourse2 = new ObstacleCourse (stadium2, pool2);
 
@@ -40,9 +40,9 @@ public class Main {
 
         System.out.println(team);
 
-        System.out.println("First try...\n");
+        System.out.println("First try...");
         obstacleCourse1.doIt(team);
-        System.out.println("Second try...\n");
+        System.out.println("Second try...");
         obstacleCourse2.doIt(team);
 
     }

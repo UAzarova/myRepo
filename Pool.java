@@ -1,7 +1,6 @@
 package lesson1;
 
 public class Pool extends Course {
-    private int length;
 
     public Pool() {
         setLength(0);

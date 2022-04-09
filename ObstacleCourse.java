@@ -25,11 +25,11 @@ class ObstacleCourse {
         for (int i = 0; i < team.getNumberOfMembers(); i++) {
             isDistancePassed = (team.getMember(i).run(this.stadium) && team.getMember(i).swim(this.pool));
             if (isDistancePassed == false) {
-                String.format("Oh no... Team %s failed!", team.getName());
-                break;
+                System.out.println (String.format("Oh no... Team %s failed!", team.getName()));
+                return isDistancePassed;
             }
         }
-        String.format("Congratulations! Team %s passed!", team.getName());
+        System.out.println (String.format("Congratulations! Team %s passed!", team.getName()));
         return isDistancePassed;
     }
 }
