@@ -13,8 +13,7 @@ public class ArraySumInt {
                     try {
                         int tmp = Integer.parseInt(array[i][j]);
                         sum += tmp;
-                    }
-                    catch (NumberFormatException e) {
+                    } catch (NumberFormatException e) {
                         System.out.println("An error has occurred with element " + i + ", " + j);
                         throw new MyArrayDataException();
                     }
@@ -22,5 +21,6 @@ public class ArraySumInt {
             }
         }
         System.out.println("Sum is: " + sum);
+        sum = 0;
     }
 }

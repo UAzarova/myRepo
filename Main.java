@@ -25,7 +25,7 @@ public class Main {
         String [][] testArray1 = new String[][] {{"0", "1", "2"}, {"3", "4", "5"}};
         String [][] testArray2 = new String[][] {{"0", "1", "7", "0"}, {"1", "6", "test", "3"} ,
                 {"1", "2", "3", "3"}, {"1", "2", "3", "3"}};
-        String [][] testArrayTrue = new String[][] {{"0", "0", "0", "0"}, {"1", "1", "1", "1"}, {"2", "2", "2", "2"}, {"0", "0", "0", "0"}};
+        String [][] testArrayTrue = new String[][] {{"0", "0", "0", "0"}, {"1", "1", "1", "1"}, {"2", "-2", "2", "2"}, {"0", "0", "0", "0"}};
 
         ArraySumInt result = new ArraySumInt();
 
@@ -35,7 +35,7 @@ public class Main {
         //некорректный тип данных
         result.transformAndSum(testArray2);
 
-        //сумма = 12
+        //сумма = 8
         result.transformAndSum(testArrayTrue);
     }
 }
