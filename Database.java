@@ -10,6 +10,7 @@ public class Database<connection> {
     private static final String DB_PASSWORD = "postgres";
     private String insertWeather = "insert into forecast (city, date, forecast, temperature) values (?, ?, ?, ?)";
     private String getWeather = "select * from forecast";
+    private String cleanDatabase = "delete from forecast";
 
     static {
         try {
@@ -43,17 +44,25 @@ public class Database<connection> {
             ResultSet resultSet = statement.executeQuery(getWeather);
             while (resultSet.next()) {
 
-                System.out.println("Город: " + resultSet.getString("city"));
+                System.out.println("\nГород: " + resultSet.getString("city"));
                 System.out.println("Дата: " + resultSet.getString("date"));
                 System.out.println("Прогноз: " + resultSet.getString("forecast"));
                 System.out.println("Температура: " + resultSet.getDouble("temperature"));
             }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
     public void cleanDB() {
+        try (Connection connection = DriverManager.getConnection(DATABASE_URL, DB_LOGIN, DB_PASSWORD)) {
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(cleanDatabase);
+            }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Forecast was cleaned!");
     }
 }
 

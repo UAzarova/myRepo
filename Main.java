@@ -113,5 +113,7 @@ public class Main {
         System.out.println("\nLoad forecast from database..");
         database.getForecastFromDB();
         System.out.println("\nGreat work!");
+
+        database.cleanDB();
     }
 }
