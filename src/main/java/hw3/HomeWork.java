@@ -1,8 +1,18 @@
 package hw3;
 
+
+/**
+ * Java 3. Home work 2.
+ *
+ * @author Azarova Iuliia
+ * @version 16.05.2022
+ */
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -18,9 +28,8 @@ public class HomeWork {
         WebDriver driver = new ChromeDriver(chromeOptions);
         WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-
-        driver.get("https://www.hermitagemuseum.org?lng=ru");
         driver.manage().window().maximize();
+        driver.get("https://www.hermitagemuseum.org?lng=ru");
         driver.findElement(By.xpath("//a[@aria-label=\"Перейти к разделу Посетителям\"]")).click();
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'500 рублей')]")));
         driver.findElement(By.xpath("//a[contains(text(),'500 рублей')]")).click();
@@ -31,39 +40,24 @@ public class HomeWork {
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//i[@class=\"fa fa-plus\"]")));
         driver.findElement(By.xpath("//i[@class=\"fa fa-plus\"]")).click();
 
+
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@name=\"fio\"]")));
         driver.findElement(By.xpath("//input[@name=\"fio\"]")).sendKeys("Фамилия Имя Отчество");
-        driver.findElement(By.xpath("//input[@name=\"phone\"]")).sendKeys("+79999999999");
-        driver.findElement(By.xpath("//input[@name=\"email\"]")).sendKeys("mail@mail.ru");
-        driver.findElement(By.xpath("//input[@name=\"re_email\"]")).sendKeys("mail@mail.ru");
-        driver.findElement(By.xpath("(//input[@type=\"checkbox\"])[1]")).click();
-        driver.findElement(By.xpath("(//input[@type=\"checkbox\"])[2]")).click();
-        driver.findElement(By.xpath("submit")).click();
+        driver.findElement(By.xpath("//input[@name=\"phone\"]")).sendKeys("+79999999991");
+        driver.findElement(By.xpath("//input[@name=\"email\"]")).sendKeys("testMail100@mail.ru");
+        driver.findElement(By.xpath("//input[@name=\"re_email\"]")).sendKeys("testMail100@mail.ru");
 
+        WebElement checkbox1 = driver.findElement(By.xpath("(//input[@type=\"checkbox\"])[1]"));
+        ((JavascriptExecutor)driver).executeScript("var elem=arguments[0]; setTimeout(function() {elem.click();}, 100)", checkbox1);
+        WebElement checkbox2 = driver.findElement(By.xpath("(//input[@type=\"checkbox\"])[2]"));
+        ((JavascriptExecutor)driver).executeScript("var elem=arguments[0]; setTimeout(function() {elem.click();}, 100)", checkbox2);
+        driver.findElement(By.xpath("//*[@id=\"form-order\"]//button[@type=\"submit\"]")).click();
 
+//        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"page-container\"]//button[@type=\"submit\"]")));
+//        WebElement paymentAcceptButton = driver.findElement(By.xpath("//*[@id=\"page-container\"]//button[@type=\"submit\"]"));
+//        ((JavascriptExecutor)driver).executeScript("var elem=arguments; setTimeout(function() {elem.click();}, 100)", paymentAcceptButton);
 
-
-
-
-
-
-
-
-/*
-        driver.findElement(By.id("loginform-password")).sendKeys("123456");
-
-        //captcha
-        WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//iframe[@title=\"reCAPTCHA\"]")));
-        driver.switchTo().frame(driver.findElement(By.xpath("//iframe[@title=\"reCAPTCHA\"]")));
-        driver.findElement(By.xpath("//div[@class=\"recaptcha-checkbox-border\"]")).click();
-        driver.switchTo().parentFrame();
-
-        driver.findElement(By.id("login_btn")).click();
-*/
-
-
-
+//        driver.findElement(By.xpath("//*[@id=\"page-container\"]//button[@type=\"submit\"]")).click();
 
 
         Thread.sleep(50000);
