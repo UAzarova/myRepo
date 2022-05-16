@@ -33,8 +33,8 @@ public class HomeWork {
         driver.findElement(By.xpath("//a[@aria-label=\"Перейти к разделу Посетителям\"]")).click();
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'500 рублей')]")));
         driver.findElement(By.xpath("//a[contains(text(),'500 рублей')]")).click();
-        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[3]/div[2]/div[2]/div[2]/div/div[2]/div/div[1]/div/ul/li/div/div[2]/a/button")));
-        driver.findElement(By.xpath("/html/body/div[3]/div[2]/div[2]/div[2]/div/div[2]/div/div[1]/div/ul/li/div/div[2]/a/button")).click();
+        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//*[@id=\"events\"]//button)[1]")));
+        driver.findElement(By.xpath("(//*[@id=\"events\"]//button)[1]")).click();
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"page-container\"]/div[2]/div/main/div/div/div/div/div/div[3]/div/div[1]")));
         driver.findElement(By.xpath("//*[@id=\"page-container\"]/div[2]/div/main/div/div/div/div/div/div[3]/div/div[1]")).click();
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//i[@class=\"fa fa-plus\"]")));
@@ -43,9 +43,9 @@ public class HomeWork {
 
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@name=\"fio\"]")));
         driver.findElement(By.xpath("//input[@name=\"fio\"]")).sendKeys("Фамилия Имя Отчество");
-        driver.findElement(By.xpath("//input[@name=\"phone\"]")).sendKeys("+79999999991");
-        driver.findElement(By.xpath("//input[@name=\"email\"]")).sendKeys("testMail100@mail.ru");
-        driver.findElement(By.xpath("//input[@name=\"re_email\"]")).sendKeys("testMail100@mail.ru");
+        driver.findElement(By.xpath("//input[@name=\"phone\"]")).sendKeys("+79999999999");
+        driver.findElement(By.xpath("//input[@name=\"email\"]")).sendKeys("testMail@mail.ru");
+        driver.findElement(By.xpath("//input[@name=\"re_email\"]")).sendKeys("testMail@mail.ru");
 
         WebElement checkbox1 = driver.findElement(By.xpath("(//input[@type=\"checkbox\"])[1]"));
         ((JavascriptExecutor)driver).executeScript("var elem=arguments[0]; setTimeout(function() {elem.click();}, 100)", checkbox1);
@@ -53,12 +53,10 @@ public class HomeWork {
         ((JavascriptExecutor)driver).executeScript("var elem=arguments[0]; setTimeout(function() {elem.click();}, 100)", checkbox2);
         driver.findElement(By.xpath("//*[@id=\"form-order\"]//button[@type=\"submit\"]")).click();
 
-//        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"page-container\"]//button[@type=\"submit\"]")));
-//        WebElement paymentAcceptButton = driver.findElement(By.xpath("//*[@id=\"page-container\"]//button[@type=\"submit\"]"));
-//        ((JavascriptExecutor)driver).executeScript("var elem=arguments; setTimeout(function() {elem.click();}, 100)", paymentAcceptButton);
+        Thread.sleep(5000);
 
-//        driver.findElement(By.xpath("//*[@id=\"page-container\"]//button[@type=\"submit\"]")).click();
-
+        WebElement paymentAcceptButton = driver.findElement(By.xpath("//*[@id=\"page-container\"]//button[@type=\"submit\"]"));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].click();", paymentAcceptButton);
 
         Thread.sleep(50000);
         driver.quit();
