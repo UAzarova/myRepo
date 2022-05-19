@@ -19,14 +19,14 @@ public class TriangleTest {
     //}
 
     @ParameterizedTest
-    @DisplayName("Проверка расчета суммы несуществующего треугольника")
+    @DisplayName("Проверка расчета площади треугольника c неправильно заданными сторонами")
     @CsvSource({"0, 0, 0", "-1, -1, -1" , "1, 2, 10" , "0, -1, 1"})
     void exceptionWhenTriangleHasWrongSides(int firstSide, int secondSide, int thirdSide) {
         Assertions.assertThrows(WrongSidesException.class, () -> Triangle.CalculateSumTriangleBySides(firstSide, secondSide, thirdSide));
     }
 
     @ParameterizedTest
-    @DisplayName("Проверка расчета суммы треугольника")
+    @DisplayName("Проверка расчета площади треугольника с правильно заданными сторонами")
     @CsvSource({"1, 1, 1", "3, 3, 5" , "100, 110, 120"})
     void trueTriangleSide(int firstSide, int secondSide, int thirdSide) throws Exception {
         assertThat(Triangle.CalculateSumTriangleBySides(firstSide, secondSide, thirdSide)).isGreaterThan(0);
