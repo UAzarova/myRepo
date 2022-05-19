@@ -8,4 +8,10 @@ public class Triangle {
         }
         throw new WrongSidesException();
     }
+
+    public static void main(String[] args) throws Exception {
+        System.out.println(CalculateSumTriangleBySides(1,1,1));
+        System.out.println(CalculateSumTriangleBySides(3,3,5));
+        System.out.println(CalculateSumTriangleBySides(100,110,120));
+    }
 }
